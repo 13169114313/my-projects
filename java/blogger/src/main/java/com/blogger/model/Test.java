@@ -3,6 +3,7 @@ package com.blogger.model;
 /**
  * @author chen
  */
+
 public class Test {
 
     private String name;

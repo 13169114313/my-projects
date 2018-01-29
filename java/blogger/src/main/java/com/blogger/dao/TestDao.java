@@ -1,5 +1,7 @@
 package com.blogger.dao;
 
-public interface TestDao {
-    long findCount();
+import com.blogger.controller.base.BaseDao;
+
+public interface TestDao extends BaseDao{
+
 }

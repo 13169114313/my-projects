@@ -1,5 +1,14 @@
 package com.blogger.mapper;
 
-public interface TestMapper {
+import com.blogger.controller.base.BaseMapper;
+import com.blogger.model.Test;
+
+import java.util.List;
+
+/**
+ * @author chen
+ */
+public interface TestMapper  extends BaseMapper<Test,String> {
     long findCount();
+
 }

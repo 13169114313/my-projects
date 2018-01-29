@@ -6,7 +6,7 @@ set src_lib=%myself%lib
 set src_jar=%myself%target
 
 
-set dist_jar=%myself%..\..\release2\blogger
+set dist_jar=%myself%..\..\..\release\blogger
 set dist_jar_lib=%dist_jar%\lib
 
 
