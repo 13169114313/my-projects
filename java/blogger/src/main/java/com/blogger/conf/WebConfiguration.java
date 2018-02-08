@@ -1,5 +1,6 @@
 package com.blogger.conf;
 
+import com.blogger.core.LoginFilter;
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
@@ -40,7 +41,6 @@ public class WebConfiguration {
 
     @Bean
     public FilterRegistrationBean testFilterRegistration() {
-
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new MyFilter());
         registration.addUrlPatterns("/*");
@@ -49,7 +49,18 @@ public class WebConfiguration {
 		registration.setOrder(1);
         return registration;
     }
-    
+
+	@Bean
+	public FilterRegistrationBean loginFilterRegistration() {
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		registration.setFilter(new LoginFilter());
+		registration.addUrlPatterns("/*");
+		registration.addInitParameter("paramName", "paramValue");
+		registration.setName("LoginFilter");
+		registration.setOrder(2);
+		return registration;
+	}
+
     public class MyFilter implements Filter {
 		private boolean isCross = false;
 		@Override

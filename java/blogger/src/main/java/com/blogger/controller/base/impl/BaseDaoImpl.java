@@ -104,7 +104,7 @@ public abstract class BaseDaoImpl<T,E extends Serializable> implements BaseDao<T
     return PageHelper.startPage(page,limit,true);
 
 //    List<T> tList=null;
-//    Page<T> tPage= PageHelper.startPage(page,limit,true);
+//    Page<T> tPage= PageHelper.startPage(admin.html,limit,true);
 //
 //    try{
 //      tList= getMapper().selectListByPage(t);

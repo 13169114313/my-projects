@@ -11,17 +11,29 @@ import io.swagger.annotations.ApiParam;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * @author chen
  */
 @Api(value="测试controller",tags={"测试接口"})
-@RestController
+@Controller
 public class TestController extends BaseController {
 
     @Autowired
     private TestService testService;
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(Model model ){
+        try{
+            model.addAttribute("hello","this is test");
+            return "test";
+        }catch (Exception e){
+            throw new MyException("获取列表失败::" + e.getMessage());
+        }
+    }
 
     @ResponseBody
     @RequestMapping(value = "/test", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blogger.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.blogger.model.response.MenuResponse">
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="path" jdbcType="VARCHAR" property="path" />
+        <result column="icon" jdbcType="VARCHAR" property="icon" />
+        <result column="permission" jdbcType="VARCHAR" property="permission" />
+        <result column="parent_id" jdbcType="INTEGER" property="parent_id" />
+        <result column="spread" jdbcType="TINYINT" property="spread" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        module_id,name,path,icon,permission,parent_id,spread
+    </sql>
+
+    <select id="selectListByPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        from blogger.sys_module
+
+    </select>
+    <select id="getMenuNotSuper" resultType="com.blogger.model.MenuTree">
+        select
+        <include refid="Base_Column_List"/>
+        from blogger.sys_module where parent_id = 0 and  module_type=1 order by order_num asc
+    </select>
+    <select id="getMenuChildren" resultType="com.blogger.model.MenuTree">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        where
+
+    </select>
+    <select id="getMenuChildrenAll" resultType="com.blogger.model.MenuTree">
+        select
+        <include refid="Base_Column_List"/>
+        from blogger.sys_module
+
+        where
+        parent_id = #{id}
+
+
+    </select>
+</mapper>

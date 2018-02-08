@@ -1,0 +1,43 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+a{
+	text-decoration: none;
+}
+html{
+	width: 100%;
+	height: 100%;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+body{
+	width: 100%;
+	min-height: 100%;
+}
+.login-bg{
+    background:url(../images/bg.png) no-repeat center;
+        background-size: cover;
+        overflow: hidden;
+}
+
+.login{
+    margin: 120px auto 0 auto;
+    min-height: 420px;
+    max-width: 420px;
+    padding: 40px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    /* overflow-x: hidden; */
+    box-sizing: border-box;
+
+}
+
+.layui-input-inline input {
+    padding-left:40px;
+}

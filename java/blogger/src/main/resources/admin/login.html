@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>后台登录</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="shortcut icon" th:href="@{/admin/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{/admin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/admin/css/main.css}">
+    <link rel="stylesheet" th:href="@{/admin/css/login.css}">
+    <link rel="stylesheet" th:href="@{/admin/css/login.css}">
+    <link rel="stylesheet" th:href="@{/admin/font/css/font-awesome.min.css}">
+</head>
+<body class="login-bg">
+<div class="login">
+    <from method = "post" ation = "/admin/login" class = "layui-from">
+        <div class="layui-form-item">
+            <div class="layui-form-item">
+                <i class="fa fa-user"></i>
+                <div class="layui-input-inline">
+
+                    <input type="text" name="username" lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <button class="layui-btn" lay-submit="" lay-filter="demo2">登录</button>
+        </div>
+    </from>
+</div>
+<script type="text/javascript" th:src="@{/admin/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/admin/js/login.js}"></script>
+</body>
+</html> 

@@ -19,6 +19,7 @@ public class CustomException implements HandlerExceptionResolver {
   @ExceptionHandler(Exception.class)
   public ModelAndView resolveException(HttpServletRequest httpServletRequest,
                                        HttpServletResponse httpServletResponse, Object o, Exception e) {
+      e.printStackTrace();
     ModelAndView mv=new ModelAndView("/error/error");
     if(e instanceof Exception){
       //处理拦截shiro 无权限

@@ -2,6 +2,8 @@ package com.blogger.controller.base;
 
 import com.alibaba.druid.support.json.JSONUtils;
 import com.blogger.core.MyException;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -28,7 +30,7 @@ public abstract class BaseController<T> {
         new SimpleDateFormat("yyyy-MM-dd"), true));
   }
 
-//  @ExceptionHandler
+  @ExceptionHandler({ UnauthorizedException.class, AuthorizationException.class })
   public String authorizationException(HttpServletRequest request,HttpServletResponse res, Exception e1) {
     if (isAjaxRequest(request)) {
       try {
